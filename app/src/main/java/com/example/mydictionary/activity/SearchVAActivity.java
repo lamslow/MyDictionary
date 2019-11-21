@@ -1,10 +1,12 @@
-package com.example.mydictionary;
+package com.example.mydictionary.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.mydictionary.R;
 
 public class SearchVAActivity extends AppCompatActivity {
 
@@ -16,7 +18,7 @@ public class SearchVAActivity extends AppCompatActivity {
     }
 
     public void openDetailWord(View view) {
-        Intent intent=new Intent(this,DetailWordActivity.class);
+        Intent intent=new Intent(this, DetailWordActivity.class);
         startActivity(intent);
     }
 }

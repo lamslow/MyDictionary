@@ -1,10 +1,12 @@
-package com.example.mydictionary;
+package com.example.mydictionary.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.mydictionary.R;
 
 public class HomePageActivity extends AppCompatActivity {
 

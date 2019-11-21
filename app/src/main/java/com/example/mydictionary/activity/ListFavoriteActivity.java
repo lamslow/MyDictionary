@@ -1,8 +1,10 @@
-package com.example.mydictionary;
+package com.example.mydictionary.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.mydictionary.R;
 
 public class ListFavoriteActivity extends AppCompatActivity {
 

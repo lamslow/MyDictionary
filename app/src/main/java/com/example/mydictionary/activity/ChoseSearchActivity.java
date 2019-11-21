@@ -1,10 +1,14 @@
-package com.example.mydictionary;
+package com.example.mydictionary.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.mydictionary.R;
+import com.example.mydictionary.activity.SearchAVActivity;
+import com.example.mydictionary.activity.SearchVAActivity;
 
 public class ChoseSearchActivity extends AppCompatActivity {
 
