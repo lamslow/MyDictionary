@@ -23,16 +23,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private SQLiteDatabase mDataBase;
     private final Context mContext;
 
-
-    private String AV_TABLE = "av";
-
-    public String ID = "id";
-    public String WORD = "word";
-    public String HTML = "html";
-    public String DES = "description";
-    public String PRO = "pronounce";
-
-
     // do đường dẫn ở phiên bản API > 17 thay đổi nên chúng ta cần kiểm tra nhé
     public DatabaseHelper(Context context) {
         super(context, DB_NAME, null, 1);// 1? Its database Version

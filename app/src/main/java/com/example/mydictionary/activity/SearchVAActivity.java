@@ -16,9 +16,4 @@ public class SearchVAActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search_va);
         setTitle("Tìm kiếm V-A");
     }
-
-    public void openDetailWord(View view) {
-        Intent intent=new Intent(this, DetailWordActivity.class);
-        startActivity(intent);
-    }
 }
