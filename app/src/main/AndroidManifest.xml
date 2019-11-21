@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SeachHistoryActivity"></activity>
+        <activity android:name=".SeachHistoryActivity" />
         <activity android:name=".ListFavoriteActivity" />
         <activity android:name=".DetailWordActivity" />
         <activity android:name=".SearchAVActivity" />
