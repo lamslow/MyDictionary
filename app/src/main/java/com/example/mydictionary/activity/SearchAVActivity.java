@@ -1,6 +1,7 @@
 package com.example.mydictionary.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,12 +21,18 @@ public class SearchAVActivity extends AppCompatActivity {
     private RecyclerView rvListAV;
     private EnglishDAO englishDAO;
     private List<Word> wordList;
+    private Toolbar toolbar3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_av);
-        setTitle("Tìm kiếm A-V");
+        toolbar3=findViewById(R.id.toolbar3);
         edtWordAV=findViewById(R.id.edtWordAV);
+        toolbar3.setTitle("Tìm kiếm A - V");
+        setSupportActionBar(toolbar3);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         rvListAV =findViewById(R.id.rvListAV);
         englishDAO=new EnglishDAO(this);
     }
