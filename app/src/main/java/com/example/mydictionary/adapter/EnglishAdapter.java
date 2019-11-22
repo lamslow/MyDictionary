@@ -34,12 +34,13 @@ public class EnglishAdapter extends RecyclerView.Adapter<EnglishHoder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull EnglishHoder holder, int position) {
+    public void onBindViewHolder(@NonNull EnglishHoder holder, final int position) {
         holder.tvWordEnglish.setText(list.get(position).word);
         holder.tvWordEnglish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(context, DetailWordActivity.class);
+                intent.putExtra("data",list.get(position).word);
                 context.startActivity(intent);
             }
         });

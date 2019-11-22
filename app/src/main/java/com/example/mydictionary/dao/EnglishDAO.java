@@ -55,4 +55,31 @@ public class EnglishDAO {
 
         return words;
     }
+    public Word searchWordByName(String text) {
+        Word word = new Word();
+        String SQL = "SELECT * FROM " + AV_TABLE + " WHERE " + WORD + " LIKE '" + text + "'";
+
+        Cursor cursor = db.rawQuery(SQL, null);
+
+        if (cursor != null) {
+            if (cursor.getCount() > 0) {
+
+                cursor.moveToFirst();
+                while (!cursor.isAfterLast()) {
+
+                    word.id = cursor.getInt(cursor.getColumnIndex(ID));
+                    word.word = cursor.getString(cursor.getColumnIndex(WORD));
+                    word.description = cursor.getString(cursor.getColumnIndex(DES));
+                    word.html = cursor.getString(cursor.getColumnIndex(HTML));
+                    word.pronounce = cursor.getString(cursor.getColumnIndex(PRO));
+
+                    cursor.moveToNext();
+
+                }
+                cursor.close();
+            }
+        }
+
+        return word;
+    }
 }
