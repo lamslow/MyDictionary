@@ -12,36 +12,45 @@ import android.widget.EditText;
 import com.example.mydictionary.R;
 import com.example.mydictionary.adapter.EnglishAdapter;
 import com.example.mydictionary.dao.EnglishDAO;
+import com.example.mydictionary.inter.SeachWordEngLishView;
 import com.example.mydictionary.model.Word;
+import com.example.mydictionary.presenter.SearchEnglishPresenter;
 
 import java.util.List;
 
-public class SearchAVActivity extends AppCompatActivity {
+public class SearchAVActivity extends AppCompatActivity implements SeachWordEngLishView {
     private EditText edtWordAV;
     private RecyclerView rvListAV;
     private EnglishDAO englishDAO;
     private List<Word> wordList;
     private Toolbar toolbar3;
+    private SearchEnglishPresenter searchEnglishPresenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_av);
-        toolbar3=findViewById(R.id.toolbar3);
-        edtWordAV=findViewById(R.id.edtWordAV);
+        searchEnglishPresenter = new SearchEnglishPresenter(this);
+        toolbar3 = findViewById(R.id.toolbar3);
+        edtWordAV = findViewById(R.id.edtWordAV);
         toolbar3.setTitle("Tìm kiếm A - V");
         setSupportActionBar(toolbar3);
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        rvListAV =findViewById(R.id.rvListAV);
-        englishDAO=new EnglishDAO(this);
+        rvListAV = findViewById(R.id.rvListAV);
+        englishDAO = new EnglishDAO(this);
     }
 
     public void searchEngLish(View view) {
-        String text=edtWordAV.getText().toString().trim();
-        wordList= englishDAO.searchWord(text);
-        EnglishAdapter englishAdapter=new EnglishAdapter(this,wordList);
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
+        searchEnglishPresenter.search();
+    }
+
+    @Override
+    public void seachEnglish() {
+        String text = edtWordAV.getText().toString().trim();
+        wordList = englishDAO.searchWord(text);
+        EnglishAdapter englishAdapter = new EnglishAdapter(this, wordList);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rvListAV.setLayoutManager(linearLayoutManager);
         rvListAV.setAdapter(englishAdapter);
     }

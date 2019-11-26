@@ -67,9 +67,8 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
-            android:onClick="openListFavorite"
+            android:onClick="openSearChHistory"
             app:srcCompat="@drawable/history" />
-
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
@@ -80,7 +79,6 @@
     </LinearLayout>
 
     <LinearLayout
-
         android:id="@+id/linearLayout3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -99,7 +97,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
-            android:onClick="openSearChHistory"
+            android:onClick="openListFavorite"
             app:srcCompat="@drawable/list" />
 
         <TextView
