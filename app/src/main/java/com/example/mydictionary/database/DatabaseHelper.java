@@ -10,6 +10,7 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 
 import com.example.mydictionary.dao.FavoriteDAO;
+import com.example.mydictionary.dao.HistoryDAO;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -94,6 +95,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(FavoriteDAO.CREATE_TABLE_FAV);
+        db.execSQL(HistoryDAO.CREATE_TABLE_HIS);
     }
 
     @Override

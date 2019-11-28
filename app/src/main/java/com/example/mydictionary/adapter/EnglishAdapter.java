@@ -11,12 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mydictionary.R;
 import com.example.mydictionary.activity.DetailWordActivity;
-import com.example.mydictionary.hoder.EnglishHoder;
+import com.example.mydictionary.holder.EnglishHolder;
 import com.example.mydictionary.model.Word;
 
 import java.util.List;
 
-public class EnglishAdapter extends RecyclerView.Adapter<EnglishHoder> {
+public class EnglishAdapter extends RecyclerView.Adapter<EnglishHolder> {
     private Context context;
     private List<Word> list;
 
@@ -27,14 +27,14 @@ public class EnglishAdapter extends RecyclerView.Adapter<EnglishHoder> {
 
     @NonNull
     @Override
-    public EnglishHoder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public EnglishHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(context).inflate(R.layout.english,parent,false);
-        EnglishHoder english=new EnglishHoder(view);
+        EnglishHolder english=new EnglishHolder(view);
         return english;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull EnglishHoder holder, final int position) {
+    public void onBindViewHolder(@NonNull EnglishHolder holder, final int position) {
         holder.tvWordEnglish.setText(list.get(position).word);
         holder.tvWordEnglish.setOnClickListener(new View.OnClickListener() {
             @Override
