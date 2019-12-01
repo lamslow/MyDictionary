@@ -24,7 +24,7 @@ public class HomePageActivity extends AppCompatActivity implements HomePageView 
         ActivityHomePageBinding activityHomePageBinding= DataBindingUtil.setContentView
                 (this,R.layout.activity_home_page);
         homePagePresenter=new HomePagePresenter(this);
-        activityHomePageBinding.setPrisenter(homePagePresenter);
+        activityHomePageBinding.setHomePrisenter(homePagePresenter);
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("My Dictionary");
 

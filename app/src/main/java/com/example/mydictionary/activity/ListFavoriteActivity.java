@@ -1,14 +1,18 @@
 package com.example.mydictionary.activity;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
 
 import com.example.mydictionary.R;
 import com.example.mydictionary.adapter.ListFavoriteAdapter;
+import com.example.mydictionary.dao.EnglishDAO;
 import com.example.mydictionary.dao.FavoriteDAO;
 import com.example.mydictionary.inter.ListFavoriteView;
 import com.example.mydictionary.model.Favorite;
@@ -20,6 +24,7 @@ public class ListFavoriteActivity extends AppCompatActivity implements ListFavor
     private Toolbar toolbar6;
     private FavoriteDAO favoriteDAO;
     private RecyclerView rvListFavorite;
+    private EnglishDAO englishDAO;
     private List<Favorite> list;
     private ShowListFavoritePresenter showListFavoritePresenter;
 
@@ -33,7 +38,7 @@ public class ListFavoriteActivity extends AppCompatActivity implements ListFavor
         rvListFavorite = findViewById(R.id.rvListFarite);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-
+        englishDAO=new EnglishDAO(this);
         favoriteDAO = new FavoriteDAO(this);
         showListFavoritePresenter=new ShowListFavoritePresenter(this);
         showListFavoritePresenter.ShowListFavorite();
@@ -47,4 +52,5 @@ public class ListFavoriteActivity extends AppCompatActivity implements ListFavor
         rvListFavorite.setLayoutManager(linearLayoutManager);
         rvListFavorite.setAdapter(listFavoriteAdapter);
     }
+
 }

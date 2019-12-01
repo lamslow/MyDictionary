@@ -2,7 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+        <data>
 
+            <variable
+                name="EnglishPrisenter"
+                type="com.example.mydictionary.presenter.SearchEnglishPresenter" />
+        </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -32,7 +37,7 @@
             android:layout_marginTop="2dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            android:onClick="searchEngLish"
+            android:onClick="@{() -> EnglishPrisenter.search()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/edtWordAV"
             app:layout_constraintTop_toBottomOf="@+id/toolbar3"

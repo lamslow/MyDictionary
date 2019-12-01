@@ -19,13 +19,11 @@ import com.example.mydictionary.model.Favorite;
 import com.example.mydictionary.model.Word;
 import com.example.mydictionary.presenter.AddFavoritePresenter;
 
-import java.util.List;
-
 public class DetailWordActivity extends AppCompatActivity implements DetailWordView {
     private EnglishDAO englishDAO;
     private AddFavoritePresenter addFavoritePresenter;
     private FavoriteDAO favoriteDAO;
-    private TextView tvword, tvDes, tvPro;
+    private TextView tvWord, tvDes, tvPro;
     ImageView imgFav;
     Toolbar toolbar7;
 
@@ -41,7 +39,7 @@ public class DetailWordActivity extends AppCompatActivity implements DetailWordV
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        tvword = findViewById(R.id.tvWord);
+        tvWord = findViewById(R.id.tvWord);
         tvDes = findViewById(R.id.tvDes);
         tvPro = findViewById(R.id.tvPro);
         imgFav = findViewById(R.id.imgFav);
@@ -51,7 +49,7 @@ public class DetailWordActivity extends AppCompatActivity implements DetailWordV
         String data = intent.getStringExtra("data");
         Log.e("abc", data + "");
         Word word = englishDAO.searchWordByName(data);
-        tvword.setText(word.word);
+        tvWord.setText(word.word);
         tvPro.setText("/" + word.pronounce + "/");
         tvDes.setText(word.description);
     }
@@ -64,7 +62,7 @@ public class DetailWordActivity extends AppCompatActivity implements DetailWordV
     @Override
     public void addFavorite() {
         Favorite favorite = new Favorite();
-        favorite.setWordFavorite(tvword.getText().toString());
+        favorite.setWordFavorite(tvWord.getText().toString());
         long result = favoriteDAO.insertFavorite(favorite);
         if (result > 0) {
             Toast.makeText(this, "Bạn đã thêm thành công vào danh sách yêu thích", Toast.LENGTH_SHORT).show();

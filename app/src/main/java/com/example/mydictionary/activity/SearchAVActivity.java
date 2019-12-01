@@ -2,6 +2,7 @@ package com.example.mydictionary.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,9 +15,12 @@ import com.example.mydictionary.R;
 import com.example.mydictionary.adapter.EnglishAdapter;
 import com.example.mydictionary.dao.EnglishDAO;
 import com.example.mydictionary.dao.HistoryDAO;
+import com.example.mydictionary.databinding.ActivityHomePageBinding;
+import com.example.mydictionary.databinding.ActivitySearchAvBinding;
 import com.example.mydictionary.inter.SeachWordEngLishView;
 import com.example.mydictionary.model.History;
 import com.example.mydictionary.model.Word;
+import com.example.mydictionary.presenter.HomePagePresenter;
 import com.example.mydictionary.presenter.SearchEnglishPresenter;
 
 import java.util.List;
@@ -30,11 +34,14 @@ public class SearchAVActivity extends AppCompatActivity implements SeachWordEngL
     private Toolbar toolbar3;
     private SearchEnglishPresenter searchEnglishPresenter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_av);
+        ActivitySearchAvBinding activitySearchAvBinding = DataBindingUtil.setContentView
+                (this, R.layout.activity_search_av);
         searchEnglishPresenter = new SearchEnglishPresenter(this);
+        activitySearchAvBinding.setEnglishPrisenter(searchEnglishPresenter);
         toolbar3 = findViewById(R.id.toolbar3);
         edtWordAV = findViewById(R.id.edtWordAV);
         toolbar3.setTitle("Tìm kiếm A - V");
@@ -53,9 +60,9 @@ public class SearchAVActivity extends AppCompatActivity implements SeachWordEngL
     @Override
     public void seachEnglish() {
         String text = edtWordAV.getText().toString().trim();
-        History history=new History();
+        History history = new History();
         history.setWordHistory(text);
-        long result=historyDAO.insertHistory(history);
+        long result = historyDAO.insertHistory(history);
         wordList = englishDAO.searchWord(text);
         EnglishAdapter englishAdapter = new EnglishAdapter(this, wordList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
