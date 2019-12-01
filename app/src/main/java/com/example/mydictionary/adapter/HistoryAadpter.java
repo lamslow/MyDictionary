@@ -2,6 +2,7 @@ package com.example.mydictionary.adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mydictionary.R;
+import com.example.mydictionary.activity.DetailWordActivity;
 import com.example.mydictionary.dao.HistoryDAO;
 import com.example.mydictionary.holder.HistoryHolder;
 import com.example.mydictionary.model.History;
@@ -72,6 +74,14 @@ public class HistoryAadpter extends RecyclerView.Adapter<HistoryHolder> {
                         dialog.dismiss();
                     }
                 });
+            }
+        });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context, DetailWordActivity.class);
+                intent.putExtra("data",list.get(position).wordHistory);
+                context.startActivity(intent);
             }
         });
     }

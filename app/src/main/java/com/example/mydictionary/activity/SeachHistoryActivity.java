@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.mydictionary.R;
@@ -47,5 +48,10 @@ public class SeachHistoryActivity extends AppCompatActivity implements HistoryVi
         rvListHistory.setAdapter(historyAadpter);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
         rvListHistory.setLayoutManager(linearLayoutManager);
+    }
+
+    @Override
+    public void showDetail() {
+
     }
 }
