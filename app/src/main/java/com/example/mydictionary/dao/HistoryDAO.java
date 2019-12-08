@@ -47,4 +47,19 @@ public class HistoryDAO {
         cursor.close();
         return list;
     }
+    public History getWordHistory() {
+        History history = new History();
+        Cursor cursor = db.query(TABLE_NAME_HIS, null,
+                null, null, null, null, null);
+        cursor.moveToFirst();
+        while (cursor.isAfterLast() == false) {
+
+            history.setWordHistory(cursor.getString(0));
+
+
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return history;
+    }
 }

@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.mydictionary.R;
 import com.example.mydictionary.adapter.HistoryAadpter;
@@ -48,10 +49,7 @@ public class SeachHistoryActivity extends AppCompatActivity implements HistoryVi
         rvListHistory.setAdapter(historyAadpter);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
         rvListHistory.setLayoutManager(linearLayoutManager);
+        Log.e("abc",list.size()+"");
     }
 
-    @Override
-    public void showDetail() {
-
-    }
 }

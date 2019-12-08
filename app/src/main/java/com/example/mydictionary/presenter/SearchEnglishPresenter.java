@@ -19,5 +19,8 @@ public class SearchEnglishPresenter {
     public void search(){
         seachWordEngLishView.seachEnglish();
     }
+    public void receiveData(){
+        seachWordEngLishView.receiveData();
+    }
 
 }

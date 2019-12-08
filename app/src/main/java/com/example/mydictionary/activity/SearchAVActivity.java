@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -31,6 +32,7 @@ public class SearchAVActivity extends AppCompatActivity implements SeachWordEngL
     private EnglishDAO englishDAO;
     private HistoryDAO historyDAO;
     private List<Word> wordList;
+    private List<History> historyList;
     private Toolbar toolbar3;
     private SearchEnglishPresenter searchEnglishPresenter;
 
@@ -51,22 +53,59 @@ public class SearchAVActivity extends AppCompatActivity implements SeachWordEngL
         rvListAV = findViewById(R.id.rvListAV);
         englishDAO = new EnglishDAO(this);
         historyDAO = new HistoryDAO(this);
-    }
-
-    public void searchEngLish(View view) {
+        searchEnglishPresenter.receiveData();
         searchEnglishPresenter.search();
+
+
     }
 
     @Override
     public void seachEnglish() {
+
         String text = edtWordAV.getText().toString().trim();
-        History history = new History();
-        history.setWordHistory(text);
-        long result = historyDAO.insertHistory(history);
-        wordList = englishDAO.searchWord(text);
-        EnglishAdapter englishAdapter = new EnglishAdapter(this, wordList);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        rvListAV.setLayoutManager(linearLayoutManager);
-        rvListAV.setAdapter(englishAdapter);
+        historyList = historyDAO.getAllWordHistory();
+        if (text.isEmpty()) {
+            edtWordAV.setError("Mời bạn nhập từ!");
+        } else {
+
+            History history = new History();
+            if (historyList.size()==0){
+                history.setWordHistory(text);
+                historyDAO.insertHistory(history);
+            }else {
+                for (int i = 0; i < historyList.size(); i++) {
+                    history = historyList.get(i);
+                    if (history.getWordHistory().equalsIgnoreCase(text)) {
+
+                    } else {
+                        history.setWordHistory(text);
+                        historyDAO.insertHistory(history);
+
+                    }
+                }
+            }
+
+            wordList = englishDAO.searchWord(text);
+            if (wordList.size() == 0) {
+                Toast.makeText(this, "Không có thông tin về từ", Toast.LENGTH_SHORT).show();
+            } else {
+                EnglishAdapter englishAdapter = new EnglishAdapter(this, wordList);
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+                rvListAV.setLayoutManager(linearLayoutManager);
+                rvListAV.setAdapter(englishAdapter);
+            }
+
+        }
+
+
     }
+
+    @Override
+    public void receiveData() {
+        Intent intent = getIntent();
+        String dataHis = intent.getStringExtra("dataHis");
+        edtWordAV.setText(dataHis);
+
+    }
+
 }

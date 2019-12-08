@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mydictionary.R;
 import com.example.mydictionary.activity.DetailWordActivity;
+import com.example.mydictionary.activity.SearchAVActivity;
 import com.example.mydictionary.dao.HistoryDAO;
 import com.example.mydictionary.holder.HistoryHolder;
 import com.example.mydictionary.model.History;
@@ -59,7 +60,7 @@ public class HistoryAadpter extends RecyclerView.Adapter<HistoryHolder> {
                         int result = historyDAO.delHistory(list.get(position).wordHistory);
                         if (result > 0) {
                             dialog.dismiss();
-                            Toast.makeText(context, "Xoa lịch sử thành công", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "Xóa lịch sử thành công", Toast.LENGTH_SHORT).show();
                             list.remove(position);
                             notifyDataSetChanged();
                         } else {
@@ -79,8 +80,8 @@ public class HistoryAadpter extends RecyclerView.Adapter<HistoryHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(context, DetailWordActivity.class);
-                intent.putExtra("data",list.get(position).wordHistory);
+                Intent intent=new Intent(context, SearchAVActivity.class);
+                intent.putExtra("dataHis",list.get(position).wordHistory);
                 context.startActivity(intent);
             }
         });
