@@ -11,6 +11,8 @@ import androidx.annotation.Nullable;
 
 import com.example.mydictionary.dao.FavoriteDAO;
 import com.example.mydictionary.dao.HistoryDAO;
+import com.example.mydictionary.dao.VNFavoriteDAO;
+import com.example.mydictionary.dao.VNHistoryDAO;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -96,6 +98,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(FavoriteDAO.CREATE_TABLE_FAV);
         db.execSQL(HistoryDAO.CREATE_TABLE_HIS);
+        db.execSQL(VNFavoriteDAO.CREATE_TABLE_FAV_VN);
+        db.execSQL(VNHistoryDAO.CREATE_TABLE_HIS_VN);
     }
 
     @Override

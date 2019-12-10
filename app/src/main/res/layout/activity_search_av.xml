@@ -7,6 +7,7 @@
             <variable
                 name="EnglishPrisenter"
                 type="com.example.mydictionary.presenter.SearchEnglishPresenter" />
+
         </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

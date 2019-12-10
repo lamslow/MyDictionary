@@ -39,9 +39,9 @@ public class DetailWordActivity extends AppCompatActivity implements DetailWordV
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        tvWord = findViewById(R.id.tvWord);
-        tvDes = findViewById(R.id.tvDes);
-        tvPro = findViewById(R.id.tvPro);
+        tvWord = findViewById(R.id.tvWordVN);
+        tvDes = findViewById(R.id.tvDesVN);
+        tvPro = findViewById(R.id.tvProVN);
         imgFav = findViewById(R.id.imgFav);
         englishDAO = new EnglishDAO(this);
         favoriteDAO = new FavoriteDAO(this);
@@ -72,4 +72,6 @@ public class DetailWordActivity extends AppCompatActivity implements DetailWordV
             Toast.makeText(this, "Bạn đã thêm thất bại vào danh sách yêu thích", Toast.LENGTH_SHORT).show();
         }
     }
+
+
 }

@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +21,7 @@ import com.example.mydictionary.databinding.ActivityHomePageBinding;
 import com.example.mydictionary.databinding.ActivitySearchAvBinding;
 import com.example.mydictionary.inter.SeachWordEngLishView;
 import com.example.mydictionary.model.History;
+import com.example.mydictionary.model.VNHistory;
 import com.example.mydictionary.model.Word;
 import com.example.mydictionary.presenter.HomePagePresenter;
 import com.example.mydictionary.presenter.SearchEnglishPresenter;
@@ -40,8 +42,7 @@ public class SearchAVActivity extends AppCompatActivity implements SeachWordEngL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivitySearchAvBinding activitySearchAvBinding = DataBindingUtil.setContentView
-                (this, R.layout.activity_search_av);
+        ActivitySearchAvBinding activitySearchAvBinding = DataBindingUtil.setContentView(this, R.layout.activity_search_av);
         searchEnglishPresenter = new SearchEnglishPresenter(this);
         activitySearchAvBinding.setEnglishPrisenter(searchEnglishPresenter);
         toolbar3 = findViewById(R.id.toolbar3);
@@ -69,10 +70,10 @@ public class SearchAVActivity extends AppCompatActivity implements SeachWordEngL
         } else {
 
             History history = new History();
-            if (historyList.size()==0){
+            if (historyList.size() == 0) {
                 history.setWordHistory(text);
                 historyDAO.insertHistory(history);
-            }else {
+            } else {
                 for (int i = 0; i < historyList.size(); i++) {
                     history = historyList.get(i);
                     if (history.getWordHistory().equalsIgnoreCase(text)) {

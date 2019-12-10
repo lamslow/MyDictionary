@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:background="#56009688"
     android:layout_height="match_parent"
-    tools:context=".activity.DetailWordActivity">
+    tools:context=".activity.DetailVietNamWordActivity">
 
     <TextView
         android:id="@+id/tvWordVN"
@@ -42,8 +42,6 @@
         app:layout_constraintTop_toBottomOf="@+id/tvWordVN" />
 
     <TextView
-        android:gravity="center_vertical"
-        android:paddingLeft="15dp"
         android:id="@+id/tvDesVN"
         android:layout_width="0dp"
         android:layout_height="40dp"
@@ -53,7 +51,8 @@
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:background="#FFFFFF"
-        android:text="Từ đồng nghĩa:"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,9 +65,9 @@
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="16dp"
+        android:onClick="addVnFavorite"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:onClick="addFavorite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvWordVN"
         app:layout_constraintTop_toBottomOf="@+id/toolbar7"
@@ -100,4 +99,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
