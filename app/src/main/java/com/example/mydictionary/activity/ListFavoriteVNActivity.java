@@ -3,9 +3,11 @@ package com.example.mydictionary.activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,6 +16,7 @@ import android.view.MenuItem;
 import com.example.mydictionary.R;
 import com.example.mydictionary.adapter.ListFavoriteVNAdapter;
 import com.example.mydictionary.dao.VNFavoriteDAO;
+import com.example.mydictionary.databinding.ActivityListFavoriteVnBinding;
 import com.example.mydictionary.inter.VNFavoriteView;
 import com.example.mydictionary.model.VNFavorite;
 import com.example.mydictionary.presenter.VNFavoritePresenter;
@@ -26,15 +29,17 @@ public class ListFavoriteVNActivity extends AppCompatActivity implements VNFavor
     List<VNFavorite> list;
     VNFavoriteDAO vnFavoriteDAO;
     private VNFavoritePresenter vnFavoritePresenter;
+    private ActivityListFavoriteVnBinding activityListFavoriteVnBinding;
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_favorite_vn);
+        activityListFavoriteVnBinding= DataBindingUtil.setContentView
+                (this,R.layout.activity_list_favorite_vn);
 
 
         toolbar8 = (Toolbar) findViewById(R.id.toolbar8);
-        toolbar8.setTitle("Danh sách yêu thích");
+        toolbar8.setTitle("Danh sách yêu thích V - A");
         setSupportActionBar(toolbar8);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);

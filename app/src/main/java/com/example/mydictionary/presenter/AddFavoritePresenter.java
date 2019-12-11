@@ -11,4 +11,5 @@ public class AddFavoritePresenter {
     public void add(){
         detailWordView.addFavorite();
     }
+    public void show(){detailWordView.show();}
 }

@@ -3,9 +3,11 @@ package com.example.mydictionary.activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,6 +16,7 @@ import android.view.MenuItem;
 import com.example.mydictionary.R;
 import com.example.mydictionary.adapter.VNHistoryAdapter;
 import com.example.mydictionary.dao.VNHistoryDAO;
+import com.example.mydictionary.databinding.ActivityListHistoryVnBinding;
 import com.example.mydictionary.inter.HistoryVNView;
 import com.example.mydictionary.model.VNHistory;
 import com.example.mydictionary.presenter.ShowVNHistoryPresenter;
@@ -25,10 +28,12 @@ public class ListHistoryVNActivity extends AppCompatActivity implements HistoryV
     private RecyclerView rvListHistoryVN;
     private VNHistoryDAO vnHistoryDAO;
     private List<VNHistory> vnHistoryList;
+    private ActivityListHistoryVnBinding activityListHistoryVnBinding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_history_vn);
+        activityListHistoryVnBinding= DataBindingUtil.setContentView
+                (this,R.layout.activity_list_history_vn);
 
         toolbar9 = (Toolbar) findViewById(R.id.toolbar9);
         toolbar9.setTitle("Lịch sử tìm kiếm V - A");

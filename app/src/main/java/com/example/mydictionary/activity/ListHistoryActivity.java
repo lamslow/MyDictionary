@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +16,7 @@ import android.view.MenuItem;
 import com.example.mydictionary.R;
 import com.example.mydictionary.adapter.HistoryAadpter;
 import com.example.mydictionary.dao.HistoryDAO;
+import com.example.mydictionary.databinding.ActivityListHistoryVnBinding;
 import com.example.mydictionary.inter.HistoryView;
 import com.example.mydictionary.inter.SeachWordEngLishView;
 import com.example.mydictionary.model.History;

@@ -45,7 +45,8 @@ public class SearchAVActivity extends AppCompatActivity implements SeachWordEngL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivitySearchAvBinding activitySearchAvBinding = DataBindingUtil.setContentView(this, R.layout.activity_search_av);
+        ActivitySearchAvBinding activitySearchAvBinding = DataBindingUtil.setContentView
+                (this, R.layout.activity_search_av);
         searchEnglishPresenter = new SearchEnglishPresenter(this);
         activitySearchAvBinding.setEnglishPrisenter(searchEnglishPresenter);
         toolbar3 = findViewById(R.id.toolbar3);
