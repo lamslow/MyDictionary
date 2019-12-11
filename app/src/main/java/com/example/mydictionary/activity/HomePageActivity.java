@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -32,7 +31,7 @@ public class HomePageActivity extends AppCompatActivity implements HomePageView 
 
     }
     public void openSearChHistory(View view) {
-        Intent intent = new Intent(this, SeachHistoryActivity.class);
+        Intent intent = new Intent(this, ListHistoryActivity.class);
         startActivity(intent);
 
     }

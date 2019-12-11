@@ -1,5 +1,6 @@
 package com.example.mydictionary.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
@@ -9,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -108,5 +111,6 @@ public class SearchAVActivity extends AppCompatActivity implements SeachWordEngL
         edtWordAV.setText(dataHis);
 
     }
+
 
 }

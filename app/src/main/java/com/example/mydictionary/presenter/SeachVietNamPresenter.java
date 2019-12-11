@@ -11,4 +11,5 @@ public class SeachVietNamPresenter {
     public void seachVN(){
         searchVietNamView.seachVN();
     }
+    public void receive(){searchVietNamView.receiveData();}
 }

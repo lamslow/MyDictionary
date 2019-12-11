@@ -1,11 +1,15 @@
 package com.example.mydictionary.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.example.mydictionary.R;
 import com.example.mydictionary.adapter.ListFavoriteVNAdapter;
@@ -49,5 +53,23 @@ public class ListFavoriteVNActivity extends AppCompatActivity implements VNFavor
         rvListFavVN.setLayoutManager(linearLayoutManager);
         rvListFavVN.setAdapter(listFavoriteVNAdapter);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menuvnfav,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId()==R.id.itEngFav){
+            Intent intent=new Intent(this,ListFavoriteActivity.class);
+            startActivity(intent);
+        }else if (item.getItemId()==R.id.itHomePage){
+            Intent intent=new Intent(this,HomePageActivity.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

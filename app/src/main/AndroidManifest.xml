@@ -10,13 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.ListFavoriteVNActivity"
+            android:name=".activity.ListHistoryVNActivity"
             android:parentActivityName=".activity.ListFavoriteActivity"></activity>
+        <activity
+            android:name=".activity.ListFavoriteVNActivity"
+            android:parentActivityName=".activity.ListFavoriteActivity" />
         <activity
             android:name=".activity.DetailVietNamWordActivity"
             android:parentActivityName=".activity.SearchVAActivity" />
         <activity
-            android:name=".activity.SeachHistoryActivity"
+            android:name=".activity.ListHistoryActivity"
             android:parentActivityName=".activity.HomePageActivity" />
         <activity
             android:name=".activity.ListFavoriteActivity"

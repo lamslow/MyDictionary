@@ -1,5 +1,6 @@
 package com.example.mydictionary.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
@@ -9,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -52,6 +55,9 @@ public class SearchVAActivity extends AppCompatActivity implements SearchVietNam
         rvListVN = findViewById(R.id.rvListVA);
         vietnameseDAO = new VietnameseDAO(this);
         vnHistoryDAO = new VNHistoryDAO(this);
+        SeachVietNamPresenter seachVietNamPresenter = new SeachVietNamPresenter(this);
+        seachVietNamPresenter.receive();
+        seachVietNamPresenter.seachVN();
 
     }
 
@@ -67,7 +73,7 @@ public class SearchVAActivity extends AppCompatActivity implements SearchVietNam
                 history.setVnHistoryWord(text);
                 vnHistoryDAO.insertVNHistory(history);
             } else {
-                for (int i = 0; i < list.size(); i++) {
+                for (int i = 0; i < vnHistoryList.size(); i++) {
                     history = vnHistoryList.get(i);
                     if (history.getVnHistoryWord().equalsIgnoreCase(text)) {
 
@@ -88,4 +94,13 @@ public class SearchVAActivity extends AppCompatActivity implements SearchVietNam
             }
         }
     }
+
+    @Override
+    public void receiveData() {
+        Intent intent = getIntent();
+        String dataHis = intent.getStringExtra("dataVnHis");
+        edtVNWord.setText(dataHis);
+    }
+
+
 }
